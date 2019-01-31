@@ -1621,7 +1621,27 @@ namespace VariabelBegreb
                 }
             } while (RadixSystemCounter < ConstRadixSystemAndDelegatesList.Count);
 
-            MessageBox.Show("Der er en fejl i din program konstruktion !!! Funktion : FindIndexInNumberSystemList");
+            MessageBox.Show("Der er en fejl i din program konstruktion !!! Funktion : FindIndexInNumberSystemList (1)");
+            return (-1);
+        }
+
+        private int FindIndexInNumberSystemList(string TextBoxName)
+        {
+            int RadixSystemCounter = 0;
+
+            do
+            {
+                if (TextBoxName == ConstRadixSystemAndDelegatesList[RadixSystemCounter].ConstRadixSystemAndDelegates_Object.TextBox_Object.Name)
+                {
+                    return (RadixSystemCounter);
+                }
+                else
+                {
+                    RadixSystemCounter++;
+                }
+            } while (RadixSystemCounter < ConstRadixSystemAndDelegatesList.Count);
+
+            MessageBox.Show("Der er en fejl i din program konstruktion !!! Funktion : FindIndexInNumberSystemList (2)");
             return (-1);
         }
 
@@ -1669,42 +1689,62 @@ namespace VariabelBegreb
             }
         }
 
+        private void txtNumberSystem_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int Radix10Value;
+
+            Index_In_Number_System_List = FindIndexInNumberSystemList(((System.Windows.FrameworkElement)sender).Name);
+
+            if (ConstRadixSystemAndDelegatesList[Index_In_Number_System_List].ConstRadixSystemAndDelegates_Object.TextBox_Object.Text.Length > 0)
+            {
+                Radix10Value = ConstRadixSystemAndDelegatesList[Index_In_Number_System_List].RadixNumber_Object.ConvertToRadix10(
+                  ConstRadixSystemAndDelegatesList[Index_In_Number_System_List].ConstRadixSystemAndDelegates_Object.TextBox_Object.Text);
+                UpdateRadixNumbersTextBoxes(Radix10Value);
+            }
+            else
+            {
+                ControlTools.ClearTextBoxes(TextBoxList);
+            }
+        }
+
         private void txtCheckForValidNumberSystemKeyPressed(object sender, KeyEventArgs e)
         {
-            switch (((System.Windows.FrameworkElement)sender).Name)
-            {
-                case "txtRomerNumber":
+            Index_In_Number_System_List = FindIndexInNumberSystemList(((System.Windows.FrameworkElement)sender).Name);
+
+            //switch (((System.Windows.FrameworkElement)sender).Name)
+            //{
+            //    case "txtRomerNumber":
                    
-                    break;
+            //        break;
 
-                case "txtDecimalNumber":
-                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.DECIMAL_NUMBER);
-                    break;
+            //    case "txtDecimalNumber":
+            //        Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.DECIMAL_NUMBER);
+            //        break;
 
-                case "txtBinaryNumber":
-                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.BINARY_NUMBER);
-                    break;
+            //    case "txtBinaryNumber":
+            //        Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.BINARY_NUMBER);
+            //        break;
 
-                case "txtOctalNumber":
-                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.OCTAL_NUMBER);
-                    break;
+            //    case "txtOctalNumber":
+            //        Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.OCTAL_NUMBER);
+            //        break;
 
-                case "txtHexadecimalNumber":
-                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.HEXADECIMAL_NUMBER);
-                    break;
+            //    case "txtHexadecimalNumber":
+            //        Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.HEXADECIMAL_NUMBER);
+            //        break;
 
-                case "txtRadix24Number":
-                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.RADIX24_NUMBER);
-                    break;
+            //    case "txtRadix24Number":
+            //        Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.RADIX24_NUMBER);
+            //        break;
 
-                case "txtRadix32Number":
-                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.RADIX32_NUMBER);
-                    break;
+            //    case "txtRadix32Number":
+            //        Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.RADIX32_NUMBER);
+            //        break;
 
-                default:
-                    MessageBox.Show("Der er fejl i navngivningen af tekstbokse !!! Funktion : txtCheckForValidNumberSystemKeyPressed");
-                    break;
-            }
+            //    default:
+            //        MessageBox.Show("Der er fejl i navngivningen af tekstbokse !!! Funktion : txtCheckForValidNumberSystemKeyPressed");
+            //        break;
+            //}
 
             if (!ConstRadixSystemAndDelegatesList[Index_In_Number_System_List].RadixNumber_Object.IsKeyValid(e.Key))
             {
@@ -1825,8 +1865,7 @@ namespace VariabelBegreb
                 e.Handled = true;
             }
         }
-        
+
         #endregion
-      
     }
 }
