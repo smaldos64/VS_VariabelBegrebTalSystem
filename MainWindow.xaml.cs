@@ -30,9 +30,12 @@ namespace VariabelBegreb
     {
         private static List<TextBox> TextBoxList = new List<TextBox>();
 
+        private static List<ConstRadixSystemAndDelegatesExtended> ConstRadixSystemAndDelegatesList = new List<ConstRadixSystemAndDelegatesExtended>();
+
         private DispatcherTimer RadixSystemTimer = new DispatcherTimer();
-        private TextBox TextBox_Object = new TextBox();
-        private NumberSystem NumberSystem_Object = new BinaryNumber();
+        //private TextBox TextBox_Object = new TextBox();
+        //private NumberSystem NumberSystem_Object = new BinaryNumber();
+        private static int Index_In_Number_System_List = -1;
 
         public ObservableCollection<EquationSystemRow> EquationSystemRows { get; set; }
         public static char StartCoefficientChar = 'x';
@@ -52,6 +55,8 @@ namespace VariabelBegreb
             InitializeEquationSystem();
 
             InitializeComboBoxesNumberSystemsLabels();
+
+            InitializeRadixNumbersList();
 
             //InitializeEquationSystemLabels();
 
@@ -1505,10 +1510,146 @@ namespace VariabelBegreb
 
         private void InitializeRadixNumbersList()
         {
+            ConstRadixSystemAndDelegates ConstRadixSystemAndDelegates_Object;
+            ConstRadixSystemAndDelegatesExtended ConstRadixSystemAndDelegatesExtended_Object;
+            RadixNumber RadixNumber_Object;
+
             for (int Counter = 0; Counter < Const.RadixSystemArray.Length; Counter++)
             {
+                switch (Const.RadixSystemArray[Counter].RadixNumber)
+                {
+                    case RadixNumber_ENUM.DECIMAL_NUMBER:
+                        ConstRadixSystemAndDelegates_Object = new ConstRadixSystemAndDelegates(Const.RadixSystemArray[Counter],
+                                                                                              txtDecimalNumber,
+                                                                                              FunctionPointerToRadix10: ConvertToRadix10IntFromRadix10String,
+                                                                                              FunctionPointerFromRadix10: ConvertFromRadix10IntToRadix10String);
+                        RadixNumber_Object = new RadixNumber(ConstRadixSystemAndDelegates_Object);
 
+                        ConstRadixSystemAndDelegatesExtended_Object = new ConstRadixSystemAndDelegatesExtended(ConstRadixSystemAndDelegates_Object, 
+                                                                                                               RadixNumber_Object);
+                        ConstRadixSystemAndDelegatesList.Add(ConstRadixSystemAndDelegatesExtended_Object);
+                        //ConstRadixSystemAndDelegates_Object.ConstRadixSystem_Object = new ConstRadixSystem(ConstRadixSystemAndDelegates_Object);
+                        //ConstRadixSystemAndDelegatesList.Add(ConstRadixSystemAndDelegates_Object);
+
+                        //ConstRadixSystemAndDelegatesList.Add(new ConstRadixSystemAndDelegates(Const.RadixSystemArray[Counter],
+                        //                                                                      txtDecimalNumber,
+                        //                                                                      FunctionPointerToRadix10: ConvertToRadix10IntFromRadix10String,
+                        //                                                                      FunctionPointerFromRadix10: ConvertFromRadix10IntToRadix10String));
+
+                        break;
+
+                    case RadixNumber_ENUM.BINARY_NUMBER:
+                        ConstRadixSystemAndDelegates_Object = new ConstRadixSystemAndDelegates(Const.RadixSystemArray[Counter],
+                                                                                               txtBinaryNumber,
+                                                                                               FunctionPointerToRadix10: null,
+                                                                                               FunctionPointerFromRadix10: null);
+                        RadixNumber_Object = new RadixNumber(ConstRadixSystemAndDelegates_Object);
+
+                        ConstRadixSystemAndDelegatesExtended_Object = new ConstRadixSystemAndDelegatesExtended(ConstRadixSystemAndDelegates_Object,
+                                                                                                               RadixNumber_Object);
+                        ConstRadixSystemAndDelegatesList.Add(ConstRadixSystemAndDelegatesExtended_Object);
+                        break;
+
+                    case RadixNumber_ENUM.OCTAL_NUMBER:
+                        ConstRadixSystemAndDelegates_Object = new ConstRadixSystemAndDelegates(Const.RadixSystemArray[Counter],
+                                                                                               txtOctalNumber,
+                                                                                               FunctionPointerToRadix10: null,
+                                                                                               FunctionPointerFromRadix10: null);
+                        RadixNumber_Object = new RadixNumber(ConstRadixSystemAndDelegates_Object);
+
+                        ConstRadixSystemAndDelegatesExtended_Object = new ConstRadixSystemAndDelegatesExtended(ConstRadixSystemAndDelegates_Object,
+                                                                                                               RadixNumber_Object);
+                        ConstRadixSystemAndDelegatesList.Add(ConstRadixSystemAndDelegatesExtended_Object);
+                        break;
+
+                    case RadixNumber_ENUM.HEXADECIMAL_NUMBER:
+                        ConstRadixSystemAndDelegates_Object = new ConstRadixSystemAndDelegates(Const.RadixSystemArray[Counter],
+                                                                                               txtHexadecimalNumber,
+                                                                                               FunctionPointerToRadix10: null,
+                                                                                               FunctionPointerFromRadix10: null);
+                        RadixNumber_Object = new RadixNumber(ConstRadixSystemAndDelegates_Object);
+
+                        ConstRadixSystemAndDelegatesExtended_Object = new ConstRadixSystemAndDelegatesExtended(ConstRadixSystemAndDelegates_Object,
+                                                                                                               RadixNumber_Object);
+                        ConstRadixSystemAndDelegatesList.Add(ConstRadixSystemAndDelegatesExtended_Object);
+                        break;
+
+                    case RadixNumber_ENUM.RADIX24_NUMBER:
+                        ConstRadixSystemAndDelegates_Object = new ConstRadixSystemAndDelegates(Const.RadixSystemArray[Counter],
+                                                                                               txtRadix24Number,
+                                                                                               FunctionPointerToRadix10: null,
+                                                                                               FunctionPointerFromRadix10: null);
+                        RadixNumber_Object = new RadixNumber(ConstRadixSystemAndDelegates_Object);
+
+                        ConstRadixSystemAndDelegatesExtended_Object = new ConstRadixSystemAndDelegatesExtended(ConstRadixSystemAndDelegates_Object,
+                                                                                                               RadixNumber_Object);
+                        ConstRadixSystemAndDelegatesList.Add(ConstRadixSystemAndDelegatesExtended_Object);
+                        break;
+
+                    case RadixNumber_ENUM.RADIX32_NUMBER:
+                        ConstRadixSystemAndDelegates_Object = new ConstRadixSystemAndDelegates(Const.RadixSystemArray[Counter],
+                                                                                               txtRadix32Number,
+                                                                                               FunctionPointerToRadix10: null,
+                                                                                               FunctionPointerFromRadix10: null);
+                        RadixNumber_Object = new RadixNumber(ConstRadixSystemAndDelegates_Object);
+
+                        ConstRadixSystemAndDelegatesExtended_Object = new ConstRadixSystemAndDelegatesExtended(ConstRadixSystemAndDelegates_Object,
+                                                                                                               RadixNumber_Object);
+                        ConstRadixSystemAndDelegatesList.Add(ConstRadixSystemAndDelegatesExtended_Object);
+                        break;
+
+                    default:
+                        MessageBox.Show("Der er fejl i opbygningen af tabeller !!! Funktion : InitializeRadixNumbersList");
+                        break;
+                }
             }
+        }
+
+        private int FindIndexInNumberSystemList(RadixNumber_ENUM RadixNumberEnum)
+        {
+            int RadixSystemCounter = 0;
+
+            do
+            {
+                if (RadixNumberEnum == ConstRadixSystemAndDelegatesList[RadixSystemCounter].ConstRadixSystemAndDelegates_Object.ConstRadixSystem_Object.RadixNumber)
+                {
+                    return (RadixSystemCounter);
+                }
+                else
+                {
+                    RadixSystemCounter++;
+                }
+            } while (RadixSystemCounter < ConstRadixSystemAndDelegatesList.Count);
+
+            MessageBox.Show("Der er en fejl i din program konstruktion !!! Funktion : FindIndexInNumberSystemList");
+            return (-1);
+        }
+
+        private int ConvertToRadix10IntFromRadix10String(string RadixStringToConvert)
+        {
+            int Radix10Number;
+
+            try
+            {
+                Radix10Number = Convert.ToInt32(RadixStringToConvert);
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show("Der er fejl i det indtastede Tal !!! " + Error.ToString());
+                return (Const.NumberFormatError);
+            }
+            return (Radix10Number);
+        }
+
+        private string ConvertFromRadix10IntToRadix10String(int Radix10Number)
+        {
+            string ReturnString = " ";
+                        
+            ReturnString = Radix10Number.ToString();
+            //ReturnString = StringHelper.InsertCharacterInStringAtSpecifiedInterval(ReturnString,
+            //                                                                       ConstRadixSystem_Object.RadixSpaceCounter,
+            //                                                                       ConstRadixSystem_Object.RadixSpaceCharacter);
+            return (ReturnString);
         }
 
         private void btnCalculateNumberSystemsClear_Click(object sender, RoutedEventArgs e)
@@ -1518,26 +1659,14 @@ namespace VariabelBegreb
 
         private void UpdateRadixNumbersTextBoxes(int Radix10Value)
         {
-            TextBox TextBox_Object = new TextBox();
-            NumberSystem NumberSystem_Object = new BinaryNumber();
-            TextBox_Object = txtBinaryNumber;
-            TextBox_Object.Text = NumberSystem_Object.ConvertFromRadix10(Radix10Value);
-            TextBox_Object.CaretIndex = TextBox_Object.Text.Length;
+            for (int Counter = 0; Counter < ConstRadixSystemAndDelegatesList.Count; Counter++)
+            {
+                ConstRadixSystemAndDelegatesList[Counter].ConstRadixSystemAndDelegates_Object.TextBox_Object.Text =
+                    ConstRadixSystemAndDelegatesList[Counter].RadixNumber_Object.ConvertFromRadix10(Radix10Value);
 
-            NumberSystem_Object = new DecimalNumber();
-            TextBox_Object = txtDecimalNumber;
-            TextBox_Object.Text = NumberSystem_Object.ConvertFromRadix10(Radix10Value);
-            TextBox_Object.CaretIndex = TextBox_Object.Text.Length;
-
-            NumberSystem_Object = new OctalNumber();
-            TextBox_Object = txtOctalNumber;
-            TextBox_Object.Text = NumberSystem_Object.ConvertFromRadix10(Radix10Value);
-            TextBox_Object.CaretIndex = TextBox_Object.Text.Length;
-
-            NumberSystem_Object = new HexadecimalNumber();
-            TextBox_Object = txtHexadecimalNumber;
-            TextBox_Object.Text = NumberSystem_Object.ConvertFromRadix10(Radix10Value);
-            TextBox_Object.CaretIndex = TextBox_Object.Text.Length;
+                ConstRadixSystemAndDelegatesList[Counter].ConstRadixSystemAndDelegates_Object.TextBox_Object.CaretIndex =
+                    ConstRadixSystemAndDelegatesList[Counter].ConstRadixSystemAndDelegates_Object.TextBox_Object.Text.Length;
+            }
         }
 
         private void txtCheckForValidNumberSystemKeyPressed(object sender, KeyEventArgs e)
@@ -1549,40 +1678,35 @@ namespace VariabelBegreb
                     break;
 
                 case "txtDecimalNumber":
-                    NumberSystem_Object = new DecimalNumber();
-                    TextBox_Object = txtDecimalNumber;
+                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.DECIMAL_NUMBER);
                     break;
 
                 case "txtBinaryNumber":
-                    NumberSystem_Object = new BinaryNumber();
-                    TextBox_Object = txtBinaryNumber;
+                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.BINARY_NUMBER);
                     break;
 
                 case "txtOctalNumber":
-                    NumberSystem_Object = new OctalNumber();
-                    TextBox_Object = txtOctalNumber;
+                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.OCTAL_NUMBER);
                     break;
 
                 case "txtHexadecimalNumber":
-                    NumberSystem_Object = new HexadecimalNumber();
-                    TextBox_Object = txtHexadecimalNumber;
+                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.HEXADECIMAL_NUMBER);
                     break;
 
                 case "txtRadix24Number":
-
+                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.RADIX24_NUMBER);
                     break;
 
                 case "txtRadix32Number":
-
+                    Index_In_Number_System_List = FindIndexInNumberSystemList(RadixNumber_ENUM.RADIX32_NUMBER);
                     break;
 
                 default:
-                    NumberSystem_Object = new DecimalNumber();
-                    TextBox_Object = txtDecimalNumber;
+                    MessageBox.Show("Der er fejl i navngivningen af tekstbokse !!! Funktion : txtCheckForValidNumberSystemKeyPressed");
                     break;
             }
 
-            if (!NumberSystem_Object.IsKeyValid(e.Key))
+            if (!ConstRadixSystemAndDelegatesList[Index_In_Number_System_List].RadixNumber_Object.IsKeyValid(e.Key))
             {
                 SystemSounds.Beep.Play();
                 e.Handled = true;
@@ -1598,7 +1722,8 @@ namespace VariabelBegreb
             int Radix10Value;
 
             RadixSystemTimer.Stop();
-            Radix10Value = NumberSystem_Object.ConvertToRadix10(TextBox_Object.Text);
+            Radix10Value = ConstRadixSystemAndDelegatesList[Index_In_Number_System_List].RadixNumber_Object.ConvertToRadix10(
+              ConstRadixSystemAndDelegatesList[Index_In_Number_System_List].ConstRadixSystemAndDelegates_Object.TextBox_Object.Text);
             UpdateRadixNumbersTextBoxes(Radix10Value);
         }
 
@@ -1667,6 +1792,8 @@ namespace VariabelBegreb
                         TextBoxList.Add(txtBinaryNumber);
                         TextBoxList.Add(txtOctalNumber);
                         TextBoxList.Add(txtHexadecimalNumber);
+                        TextBoxList.Add(txtRadix24Number);
+                        TextBoxList.Add(txtRadix32Number);
                         break;
                 }
             }

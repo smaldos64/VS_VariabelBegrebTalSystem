@@ -16,7 +16,7 @@ namespace VariabelBegreb.Tools
         OCTAL_NUMBER = 8,
         HEXADECIMAL_NUMBER = 16,
         RADIX24_NUMBER = 24,
-        RADIX32_Number = 32
+        RADIX32_NUMBER = 32
     }
 
     public class ConstRadixSystem
@@ -59,7 +59,7 @@ namespace VariabelBegreb.Tools
             new ConstRadixSystem(RadixNumber : RadixNumber_ENUM.HEXADECIMAL_NUMBER, RadixSpaceCounter : 4, RadixSpaceCharacter : ' ', ValidKeysArray : Radix16ValidKeysArray),
             new ConstRadixSystem(RadixNumber : RadixNumber_ENUM.DECIMAL_NUMBER, RadixSpaceCounter : 3, RadixSpaceCharacter : '.', ValidKeysArray : Radix10ValidKeysArray),
             new ConstRadixSystem(RadixNumber : RadixNumber_ENUM.RADIX24_NUMBER, RadixSpaceCounter : 4, RadixSpaceCharacter : ' ', ValidKeysArray : Radix24ValidKeysArray),
-            new ConstRadixSystem(RadixNumber : RadixNumber_ENUM.RADIX32_Number, RadixSpaceCounter : 4, RadixSpaceCharacter : ' ', ValidKeysArray : Radix32ValidKeysArray)
+            new ConstRadixSystem(RadixNumber : RadixNumber_ENUM.RADIX32_NUMBER, RadixSpaceCounter : 4, RadixSpaceCharacter : ' ', ValidKeysArray : Radix32ValidKeysArray)
         };
 
         public static ConstRadixSystem FindRadixSystem(RadixNumber_ENUM RadixNumber)

@@ -59,15 +59,10 @@
     <Compile Include="Models\EquationSystemRow.cs" />
     <Compile Include="Models\MatrixCalculationCoefficients.cs" />
     <Compile Include="Models\MoreXAMLProps.cs" />
-    <Compile Include="NumberSystems\BinaryNumber.cs" />
-    <Compile Include="NumberSystems\DecimalNumber.cs" />
     <Compile Include="NumberSystems\Delegates.cs" />
-    <Compile Include="NumberSystems\HexadecimalNumber.cs" />
-    <Compile Include="NumberSystems\INumberSystem.cs" />
     <Compile Include="NumberSystems\NumberSystem.cs" />
-    <Compile Include="NumberSystems\OctalNumber.cs" />
-    <Compile Include="NumberSystems\Radix32Number.cs" />
-    <Compile Include="NumberSystems\RadixNumberClass.cs" />
+    <Compile Include="NumberSystems\NumberSystemHelper.cs" />
+    <Compile Include="NumberSystems\RadixNumber.cs" />
     <Compile Include="NumberSystems\RomerNumber.cs" />
     <Compile Include="Tools\Const.cs" />
     <Compile Include="Tools\ControlTools.cs" />

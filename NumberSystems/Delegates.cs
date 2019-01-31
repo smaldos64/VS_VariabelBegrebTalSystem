@@ -8,25 +8,38 @@ using VariabelBegreb.Tools;
 
 namespace VariabelBegreb.NumberSystems
 {
-    public delegate string ConvertFromRadix10ToSpecifiedRadix(int Radix10Number);
-    public delegate int ConvertToRadix10(string RadixStringToConvert, RadixNumber_ENUM Radix);
+    public delegate string ConvertFromRadix10Int(int Radix10Number);
+    public delegate int ConvertToRadix10Int(string Radix10String);
 
     public class ConstRadixSystemAndDelegates
     {
-        ConstRadixSystem ConstRadixSystem_Object { get; set; }
-        ConvertFromRadix10ToSpecifiedRadix FunctionPointerFromRadix10 { get; set; }
-        ConvertToRadix10 FunctionPointerToRadix10 { get; set; }
-        TextBox TextBox_Object { get; set; }
+        public ConstRadixSystem ConstRadixSystem_Object { get; set; }
+        public ConvertToRadix10Int FunctionPointerToRadix10 { get; set; }
+        public ConvertFromRadix10Int FunctionPointerFromRadix10 { get; set; }
+        public TextBox TextBox_Object { get; set; }
 
         public ConstRadixSystemAndDelegates(ConstRadixSystem ConstRadixSystem_Object,
                                             TextBox TextBox_Object,
-                                            ConvertFromRadix10ToSpecifiedRadix FunctionPointerFromRadix10,
-                                            ConvertToRadix10 FunctionPointerToRadix10)
+                                            ConvertToRadix10Int FunctionPointerToRadix10,
+                                            ConvertFromRadix10Int FunctionPointerFromRadix10)
         {
             this.ConstRadixSystem_Object = ConstRadixSystem_Object;
             this.TextBox_Object = TextBox_Object;
-            this.FunctionPointerFromRadix10 = FunctionPointerFromRadix10;
             this.FunctionPointerToRadix10 = FunctionPointerToRadix10;
+            this.FunctionPointerFromRadix10 = FunctionPointerFromRadix10;
+        }
+    }
+
+    public class ConstRadixSystemAndDelegatesExtended
+    {
+        public ConstRadixSystemAndDelegates ConstRadixSystemAndDelegates_Object { get; set; }
+        public RadixNumber RadixNumber_Object { get; set; }
+
+        public ConstRadixSystemAndDelegatesExtended(ConstRadixSystemAndDelegates ConstRadixSystemAndDelegates_Object,
+                                                    RadixNumber RadixNumber_Object)
+        {
+            this.ConstRadixSystemAndDelegates_Object = ConstRadixSystemAndDelegates_Object;
+            this.RadixNumber_Object = RadixNumber_Object;
         }
     }
 

@@ -443,28 +443,28 @@
                         <Label Content="lbl2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="lblTalsystemer2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="10" />
                         <Label Content="lbl3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="lblTalsystemer3" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="10" />
 
-                        <Button Content="Clear" VerticalAlignment="Top" Name="btnCalculateNumberSystemsClear" Grid.Column="4" Grid.Row="6" HorizontalAlignment="Left" Width="75" Click="btnCalculateNumberSystemsClear_Click" />
+                        <Button Content="Clear" VerticalAlignment="Top" Name="btnCalculateNumberSystemsClear" Grid.Column="5" Grid.Row="6" HorizontalAlignment="Left" Width="75" Click="btnCalculateNumberSystemsClear_Click" />
 
                         <Label Content="Romertal : " HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Name="lblRomerNumber"/>
-                        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="5" Name="txtRomerNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
+                        <TextBox Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="2" Grid.Row="5" Name="txtRomerNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
 
                         <Label Content="Decimaltal (10 tals system) : " HorizontalAlignment="Left" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Name="lblDecimalNumber"/>
-                        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="6" Name="txtDecimalNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
+                        <TextBox Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="2" Grid.Row="6" Name="txtDecimalNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
                       
                         <Label Content="Binært tal (2 tals system) : " HorizontalAlignment="Left" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Name="lblBinaryNumber"/>
-                        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="7" Name="txtBinaryNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
+                        <TextBox Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="2" Grid.Row="7" Name="txtBinaryNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
 
                         <Label Content="Oktalt tal (8 tals system) : " HorizontalAlignment="Left" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Name="lblOctalNumber"/>
-                        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="8" Name="txtOctalNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
+                        <TextBox Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="2" Grid.Row="8" Name="txtOctalNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
 
                         <Label Content="Hexadecimalt tal (16 tals system) : " HorizontalAlignment="Left" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" Name="lblHexadecimalNumber"/>
-                        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="9" Name="txtHexadecimalNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
+                        <TextBox Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="2" Grid.Row="9" Name="txtHexadecimalNumber" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
 
                         <Label Content="Radix 24 tal (24 tals system) : " HorizontalAlignment="Left" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Name="lblRadix24Number"/>
-                        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="10" Name="txtRadix24Number" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
+                        <TextBox Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="2" Grid.Row="10" Name="txtRadix24Number" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
 
                         <Label Content="Radix 32 tal (32 tals system) : " HorizontalAlignment="Left" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="2" Name="lblRadix32Number"/>
-                        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="11" Name="txtRadix32Number" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
+                        <TextBox Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="2" Grid.Row="11" Name="txtRadix32Number" KeyDown="txtCheckForValidNumberSystemKeyPressed" />
                     </Grid>
                 </TabItem>
             </TabControl>

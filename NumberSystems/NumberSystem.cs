@@ -27,7 +27,8 @@ namespace VariabelBegreb.NumberSystems
                 StringCounter++;
                 NumberCalculated = NumberToConvert / RadixValue;
                 Carry = NumberToConvert % RadixValue;
-                OutputString += Carry.ToString("X");
+                //OutputString += Carry.ToString("X");
+                OutputString += NumberSystemHelper.MyCharConverter(Carry);
 
                 //if (0 == StringCounter % RadixSpaceCounter)
                 //{
@@ -52,13 +53,15 @@ namespace VariabelBegreb.NumberSystems
             {
                 //if (RadixNumber_ENUM.HEXADECIMAL_NUMBER == Radix)
                 //{
-                    Radix10Value += (int)Math.Pow((int)Radix, Counter) * int.Parse(RadixStringToConvert[Counter].ToString(),
-                        System.Globalization.NumberStyles.HexNumber);
+                //    Radix10Value += (int)Math.Pow((int)Radix, Counter) * int.Parse(RadixStringToConvert[Counter].ToString(),
+                //        System.Globalization.NumberStyles.HexNumber);
                 //}
                 //else
                 //{
                 //    Radix10Value += (int)Math.Pow((int)Radix, Counter) * (int)Char.GetNumericValue(RadixStringToConvert[Counter]);
                 //}
+
+                Radix10Value += (int)Math.Pow((int)Radix, Counter) * NumberSystemHelper.MyNumberConverter(RadixStringToConvert[Counter]);
             }
 
             return (Radix10Value);
